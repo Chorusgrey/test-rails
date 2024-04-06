@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <h1>Hello la ferrari </h1>
+    <div>
+      <h1><%= @car.model %></h1>
+      <%= image_tag(@car.photo) %>
+      <%= simple_form_for([@car, @booking]) do |f| %>
+        <%= f.input :start_date, :label => "Date de début",
+          as: :string,
+          input_html: { data: { price_calculation_target: "startDate", action: "change->price-calculation#calculate", controller: "datepicker" } } %>
+        <%= f.input :end_date, :label => "Date de fin",
+          as: :string,
+          input_html: { data: { price_calculation_target: "endDate", action: "change->price-calculation#calculate", controller: "datepicker" } } %>
+        <div data-price-calculation-target="totalPrice" style="text-align:center;"></div>
+        <div><%= f.button :submit, "Reserver"%></div>
+    <% end %>
+    </div>
+  </div>
+</div>
