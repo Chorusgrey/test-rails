@@ -9,7 +9,7 @@ class CarsController < ApplicationController
       else
         @cars = Car.all
       end
-    end
+  end
 
   def show
     @booking = Booking.new
