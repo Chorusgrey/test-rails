@@ -5,7 +5,7 @@ class CarsController < ApplicationController
     query = params[:query]
       if query.present?
         sql_query = "brand ILIKE :query OR model ILIKE :query OR color ILIKE :query"
-        @cars = Car.where(sql_query, query: "%#{query}%")
+          @cars = Car.where(sql_query, query: "%#{query}%")
       else
         @cars = Car.all
       end
